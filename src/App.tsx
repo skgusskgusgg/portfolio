@@ -1,5 +1,7 @@
+import Router from "./Router";
+
 function App() {
-    return <div>풀페이지</div>;
+    return <></>;
 }
 
 export default App;
