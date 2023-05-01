@@ -1,5 +1,8 @@
-import React from "react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
+const Container = styled(motion.div)``;
 
 export default function Introdution() {
-    return <div></div>;
+    return <Container>Introdution</Container>;
 }
