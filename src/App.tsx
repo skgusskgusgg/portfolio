@@ -1,7 +1,11 @@
-import Router from "./Router";
+import Container from "./components/Container";
 
-function App() {
-    return <></>;
+export default function App() {
+    return (
+        <>
+            {[1, 2, 3, 4].map((e) => {
+                return <Container id={e} />;
+            })}
+        </>
+    );
 }
-
-export default App;

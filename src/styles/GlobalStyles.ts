@@ -27,6 +27,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html {
+  scroll-snap-type: y mandatory;
+}
 body {
 	line-height: 1;
 }

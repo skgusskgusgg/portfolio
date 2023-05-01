@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nav from "./components/Nav/Nav";
 import Dt from "./pages/work/Components/port1/Dt";
 import Pw from "./pages/work/Components/port2/Pw";
 import Intern from "./pages/work/Components/port3/Intern";
@@ -10,7 +9,6 @@ import App from "./App";
 export default function Router() {
     return (
         <BrowserRouter>
-            <Nav />
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/dt" element={<Dt />} />
