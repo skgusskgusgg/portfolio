@@ -52,8 +52,8 @@ table {
     box-sizing: border-box;
 }
 body{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: black;
+    font-family: 'Source Sans Pro', 'Black Han Sans','Source Sans Pro',sans-serif ;
+    color: #fff;
 }
 a{
     text-decoration: none;
