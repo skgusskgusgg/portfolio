@@ -1,11 +1,15 @@
+import styled from "styled-components";
 import Container from "./components/Container";
 
+const AppContainer = styled.div`
+    font-family: ${(props) => props.theme["main-font"]};
+`;
 export default function App() {
     return (
-        <>
+        <AppContainer>
             {[1, 2, 3, 4].map((e) => {
                 return <Container id={e} />;
             })}
-        </>
+        </AppContainer>
     );
 }

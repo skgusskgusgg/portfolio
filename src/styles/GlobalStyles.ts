@@ -54,6 +54,9 @@ table {
 body{
     font-family: 'Source Sans Pro', 'Black Han Sans','Source Sans Pro',sans-serif ;
     color: #fff;
+	&::-webkit-scrollbar {
+        display: none;
+    }
 }
 a{
     text-decoration: none;
