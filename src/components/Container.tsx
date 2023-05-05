@@ -92,6 +92,13 @@ export default function Container({ id }: { id: number }) {
                             initial="entry"
                             whileInView="while"
                             exit="exit"
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
                         >
                             <Main />
                         </motion.div>
