@@ -5,5 +5,6 @@ declare module "styled-components" {
         "main-font": string;
         "animation-font": string;
         "main-color": string;
+        "point-font": string;
     }
 }

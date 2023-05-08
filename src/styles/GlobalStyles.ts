@@ -52,7 +52,7 @@ table {
     box-sizing: border-box;
 }
 body{
-    font-family: 'Source Sans Pro', 'Black Han Sans','Source Sans Pro',sans-serif ;
+    font-family: ${(props) => props.theme["main-font"]} ;
     color: #fff;
 	&::-webkit-scrollbar {
         display: none;
