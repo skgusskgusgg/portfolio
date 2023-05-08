@@ -7,9 +7,7 @@ const AppContainer = styled.div`
 export default function App() {
     return (
         <AppContainer>
-            {[1, 2, 3, 4].map((e) => {
-                return <Container id={e} />;
-            })}
+            <Container />;
         </AppContainer>
     );
 }
