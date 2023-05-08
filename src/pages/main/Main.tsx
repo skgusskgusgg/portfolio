@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { forwardRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 const Container = styled(motion.div)`
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +40,11 @@ const Line = styled.svg`
 
 const Text = styled.text``;
 
-export default function Main() {
+interface RefProps {
+    ref: React.Ref<HTMLDivElement>;
+}
+
+const Main = () => {
     return (
         <Container>
             <Line height="100" stroke="#fff" strokeWidth="1" width="100%">
@@ -63,4 +69,5 @@ export default function Main() {
             </Line>
         </Container>
     );
-}
+};
+export default Main;

@@ -8,24 +8,29 @@ import Connect from "../pages/connect/Connect";
 import Nav from "./Nav/Nav";
 
 const Cotainer = styled(motion.div)`
-    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: center;
-    perspective: 500px;
     background-color: #015c92;
     transition: ease-in-out 0.5s;
 `;
 
 const Wrapper = styled(motion.div)`
-    position: relative;
-    max-height: 90vh;
-    width: 70%;
-    height: 400px;
-    overflow: hidden;
-    margin: 20px;
+    width: 100%;
+`;
+const DivBox = styled(motion.div)`
+    div {
+        width: 70vw;
+        height: 70vh;
+        border: 1px solid #fff;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 `;
 
 const varints = {
@@ -34,33 +39,59 @@ const varints = {
     },
     while: {
         opacity: 1,
-        transition: { duration: 0.5 },
+        transition: { duration: 1 },
     },
     exit: {
         opacity: 0,
-        transition: { duration: 0.5 },
+        transition: { duration: 1 },
     },
 };
 const changeColor = ["#015c92", "#053c5e", "#cd9489", "#1f2933", "#85a3c5"];
 
-export default function Container({ id }: { id: number }) {
-    const motionRef = useRef(null);
+export default function Container() {
     const bgRef = useRef<any>(null);
     const [scrollValue, setScrollValue] = useState(0);
     const [colorIndex, setColorIndex] = useState(0);
     const [dateNow, setDateNow] = useState(Date.now());
+    const mainRef = useRef<HTMLDivElement>(null);
+    const workRef = useRef<HTMLDivElement>(null);
+    const introRef = useRef<HTMLDivElement>(null);
+    const connectRef = useRef<HTMLDivElement>(null);
 
+    const onMoveMain = () => {
+        mainRef.current?.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+        });
+    };
+
+    const onMoveWork = () => {
+        workRef.current?.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+        });
+    };
+    const onMoveIntro = () => {
+        introRef.current?.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+        });
+    };
+    const onMoveConnect = () => {
+        connectRef.current?.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+        });
+    };
     const handleChangecolor = (e: any) => {
         setScrollValue(scrollValue + e.currentTarget.scrollY * 0.01);
         const timePassed = Date.now() - dateNow;
-        console.log(e);
 
         if (timePassed > 1000 && scrollValue > 5) {
             setDateNow(Date.now());
             setColorIndex((prev) => prev + 1);
             bgRef.current.style.backgroundColor = changeColor[colorIndex];
             setScrollValue(0);
-            console.log(colorIndex);
             if (colorIndex > changeColor.length - 1) {
                 setColorIndex(0);
             }
@@ -81,55 +112,60 @@ export default function Container({ id }: { id: number }) {
             window.removeEventListener("scroll", handleChangecolor);
         };
     }, [colorIndex]);
+
     return (
         <>
-            <Nav />
-            <Cotainer ref={bgRef} key={id}>
-                <Wrapper ref={motionRef}>
-                    {id === 1 ? (
-                        <motion.div
-                            variants={varints}
-                            initial="entry"
-                            whileInView="while"
-                            exit="exit"
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Main />
-                        </motion.div>
-                    ) : id === 2 ? (
-                        <motion.div
-                            variants={varints}
-                            initial="entry"
-                            whileInView="while"
-                            exit="exit"
-                        >
-                            <Introdution />
-                        </motion.div>
-                    ) : id === 3 ? (
-                        <motion.div
-                            variants={varints}
-                            initial="entry"
-                            whileInView="while"
-                            exit="exit"
-                        >
-                            <Work />
-                        </motion.div>
-                    ) : id === 4 ? (
-                        <motion.div
-                            variants={varints}
-                            initial="entry"
-                            whileInView="while"
-                            exit="exit"
-                        >
-                            <Connect />
-                        </motion.div>
-                    ) : null}
+            <Nav
+                onMoveMain={onMoveMain}
+                onMoveWork={onMoveWork}
+                onMoveIntro={onMoveIntro}
+                onMoveConnect={onMoveConnect}
+            />
+            <Cotainer ref={bgRef}>
+                <Wrapper>
+                    <motion.div
+                        variants={varints}
+                        initial="entry"
+                        whileInView="while"
+                        exit="exit"
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                        ref={mainRef}
+                    >
+                        <Main />
+                    </motion.div>
+                    <DivBox
+                        variants={varints}
+                        initial="entry"
+                        whileInView="while"
+                        exit="exit"
+                        ref={introRef}
+                    >
+                        <Introdution />
+                    </DivBox>
+                    <DivBox
+                        variants={varints}
+                        initial="entry"
+                        whileInView="while"
+                        exit="exit"
+                        ref={workRef}
+                    >
+                        <Work />
+                    </DivBox>
+                    <DivBox
+                        variants={varints}
+                        initial="entry"
+                        whileInView="while"
+                        exit="exit"
+                        ref={connectRef}
+                    >
+                        <Connect />
+                    </DivBox>
                 </Wrapper>
             </Cotainer>
         </>

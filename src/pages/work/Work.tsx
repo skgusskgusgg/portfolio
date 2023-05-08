@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
-const Container = styled(motion.div)``;
-
-export default function Work() {
-    return <Container>Work</Container>;
+const Container = styled(motion.div)`
+    height: 100vh;
+`;
+interface RefProps {
+    ref: React.Ref<HTMLDivElement>;
 }
+
+const Work = () => {
+    return <Container>Work</Container>;
+};
+export default Work;
