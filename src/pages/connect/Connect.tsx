@@ -7,5 +7,5 @@ const Container = styled(motion.div)`
 `;
 
 export default function Connect() {
-    return <Container>Connect</Container>;
+    return <Container className="div">Connect</Container>;
 }

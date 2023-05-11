@@ -5,7 +5,7 @@ const Container = styled(motion.div)`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 10;
     width: 100%;
     height: 100vh;
 `;
@@ -24,18 +24,30 @@ const BtnBox = styled(motion.div)`
         border: 1px solid #000;
         border-top: none;
     }
-    .active {
-        color: #000;
-    }
 `;
 const Btn = styled(motion.div)`
     border: none;
-    /* background-color: inherit; */
+    background-color: inherit;
     color: #fff;
     font-weight: 100;
     font-size: 16px;
-    font-family: ${(props) => props.theme["main-font"]};
+    font-family: ${(props) => props.theme["point-font"]};
     cursor: pointer;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.5s ease-in-out;
+    }
+    &:hover::after {
+        width: 100%;
+    }
 `;
 const blink = keyframes`
       0% {
