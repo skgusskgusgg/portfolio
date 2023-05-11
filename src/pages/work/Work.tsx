@@ -10,6 +10,6 @@ interface RefProps {
 }
 
 const Work = () => {
-    return <Container>Work</Container>;
+    return <Container className="div">Work</Container>;
 };
 export default Work;
