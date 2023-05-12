@@ -8,6 +8,10 @@ const Container = styled(motion.div)`
     z-index: 10;
     width: 100%;
     height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
 const BtnBox = styled(motion.div)`
     display: flex;
