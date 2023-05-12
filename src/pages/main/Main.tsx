@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { forwardRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 const Container = styled(motion.div)`
@@ -39,10 +38,6 @@ const Line = styled.svg`
 `;
 
 const Text = styled.text``;
-
-interface RefProps {
-    ref: React.Ref<HTMLDivElement>;
-}
 
 const Main = () => {
     return (

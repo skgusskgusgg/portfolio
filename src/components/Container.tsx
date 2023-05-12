@@ -6,6 +6,7 @@ import Introdution from "../pages/introdution/Introdution";
 import Work from "../pages/work/Work";
 import Connect from "../pages/connect/Connect";
 import Nav from "./Nav/Nav";
+import wheelHandler from "../hooks/useParallax";
 
 const Cotainer = styled(motion.div)`
     display: flex;
@@ -15,6 +16,13 @@ const Cotainer = styled(motion.div)`
     position: relative;
     background-color: #015c92;
     transition: ease-in-out 0.5s;
+
+    div {
+        ::selection {
+            background: #fff;
+            color: #000;
+        }
+    }
 `;
 
 const Wrapper = styled(motion.div)`

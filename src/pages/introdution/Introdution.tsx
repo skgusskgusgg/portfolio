@@ -10,6 +10,13 @@ const Container = styled(motion.div)`
     transition: all 0.5s ease-in-out;
     font-family: ${(props) => props.theme["point-font"]};
     font-weight: 300;
+    p,
+    span {
+        &::selection {
+            background: #fff;
+            color: #000;
+        }
+    }
     &:hover {
         background-color: #fff;
     }
@@ -18,6 +25,10 @@ const MainTitle = styled.div`
     font-size: 1.5rem;
     padding-top: 10px;
     font-weight: 500;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
 const Title = styled.div`
     margin: 20px 0;
