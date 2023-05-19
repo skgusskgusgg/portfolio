@@ -170,7 +170,7 @@ export default function Container() {
                         exit="exit"
                         ref={workRef}
                     >
-                        <Work />
+                        <Work onMoveMain={onMoveMain} />
                     </DivBox>
                     <DivBox
                         variants={varints}
