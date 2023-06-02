@@ -1,5 +1,11 @@
 import React from "react";
+import Nav from "../nav/SideNav";
 
 export default function Pw() {
-    return <div>Pet with u</div>;
+    return (
+        <div>
+            <Nav />
+            Pet with u
+        </div>
+    );
 }
