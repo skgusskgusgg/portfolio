@@ -6,7 +6,6 @@ import Introdution from "../pages/introdution/Introdution";
 import Work from "../pages/work/Work";
 import Connect from "../pages/connect/Connect";
 import Nav from "./Nav/Nav";
-import wheelHandler from "../hooks/useParallax";
 
 const Cotainer = styled(motion.div)`
     display: flex;

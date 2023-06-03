@@ -81,18 +81,18 @@ const Work = ({ onMoveMain }: any) => {
             {TITLE.map((e) => {
                 return (
                     <WorkBox key={e.id}>
-                        <Link to={e.link}>
-                            <Background
-                                onClick={
-                                    e.small === "Portfolio" ? onMoveMain : null
-                                }
-                                style={{ backgroundImage: `url(${e.img})` }}
-                            >
+                        <Background
+                            onClick={
+                                e.small === "Portfolio" ? onMoveMain : null
+                            }
+                            style={{ backgroundImage: `url(${e.img})` }}
+                        >
+                            <Link to={e.link}>
                                 <Gif src={e.src} alt="" />
-                            </Background>
-                            <BigTitle>{e.big}</BigTitle>
-                            <SmallTitle>{e.small}</SmallTitle>
-                        </Link>
+                            </Link>
+                        </Background>
+                        <BigTitle>{e.big}</BigTitle>
+                        <SmallTitle>{e.small}</SmallTitle>
                     </WorkBox>
                 );
             })}

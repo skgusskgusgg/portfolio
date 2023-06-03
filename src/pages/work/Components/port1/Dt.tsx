@@ -1,11 +1,11 @@
 import React from "react";
-import Nav from "../nav/SideNav";
+import Container from "../Container";
+import port from "../../data/portfolio.json";
 
 export default function Dt() {
     return (
-        <div>
-            <Nav />
-            Dwae-getarian
-        </div>
+        <>
+            <Container data={port[0]} />
+        </>
     );
 }
