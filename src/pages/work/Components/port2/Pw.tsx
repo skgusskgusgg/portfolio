@@ -1,11 +1,12 @@
 import React from "react";
 import Nav from "../nav/SideNav";
+import Container from "../Container";
+import port from "../../data/portfolio.json";
 
 export default function Pw() {
     return (
-        <div>
-            <Nav />
-            Pet with u
-        </div>
+        <>
+            <Container data={port[1]} />
+        </>
     );
 }
