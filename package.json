@@ -41,8 +41,7 @@
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "homepage": "https://skgusskgusgg.github.io/portfolio/",
-        "postbuild": "cp build/index.html build/404.html"
+        "homepage": "https://skgusskgusgg.github.io/portfolio/index.html"
     },
     "eslintConfig": {
         "extends": [
