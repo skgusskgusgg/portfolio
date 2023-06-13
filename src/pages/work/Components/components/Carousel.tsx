@@ -11,7 +11,7 @@ export default function Carousel({ data }: any) {
         slidesToScroll: 1,
         arrows: true,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
         prevArrow: <button type="button" className="slick-prev"></button>,
         nextArrow: <button type="button" className="slick-next"></button>,
     };

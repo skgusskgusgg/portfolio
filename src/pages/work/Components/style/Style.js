@@ -189,6 +189,9 @@ export const ListBox = styled.div`
     flex-direction: column;
     width: 60%;
     text-align: left;
+    @media screen and (max-width: 992px) {
+        font-size: 0.9rem;
+    }
 `;
 export const List = styled.div`
     margin: 30px 0;
@@ -205,6 +208,9 @@ export const Content = styled.div`
     margin: 10px 0;
     width: 80%;
     line-height: 1.2em;
+    @media screen and (max-width: 992px) {
+        font-size: 0.9rem;
+    }
 
     img {
         margin: 5px;
@@ -215,14 +221,24 @@ export const Bold = styled.div`
     font-weight: bold;
     font-size: 1.2rem;
     width: 80%;
+    @media screen and (max-width: 992px) {
+        font-size: 1.1rem;
+    }
 `;
 export const ReviewContainer = styled.ul`
     .bold {
         font-weight: bold;
         margin-bottom: 10px;
+        @media screen and (max-width: 992px) {
+            font-size: 1.1rem;
+        }
     }
 `;
-export const ReviewList = styled.li``;
+export const ReviewList = styled.li`
+    @media screen and (max-width: 992px) {
+        font-size: 0.9rem;
+    }
+`;
 export const Bottom = styled.div`
     width: 100%;
 
