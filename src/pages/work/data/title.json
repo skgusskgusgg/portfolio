@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "big": "WEB",
+        "small": "Dae-Getaian",
+        "src": "images/dwae-gitarian.gif",
+        "img": "images/dweaP.png",
+        "Msrc": "images/dwae-gitarian.gif",
+        "link": "/dt"
+    },
+    {
+        "id": 2,
+        "big": "WEB",
+        "small": "Pet With U",
+        "src": "images/petwithu.gif",
+        "img": "images/petP.png",
+        "Msrc": "images/petwithu.gif",
+        "link": "/pw"
+    },
+    {
+        "id": 3,
+        "big": "WEB",
+        "small": "SmartInside-Internship",
+        "src": "images/smartinside.gif",
+        "img": "images/smartP.png",
+        "Msrc": "images/smartinside.gif",
+        "link": "/intern"
+    },
+    {
+        "id": 4,
+        "big": "WEB",
+        "small": "Portfolio",
+        "link": "/"
+    }
+]

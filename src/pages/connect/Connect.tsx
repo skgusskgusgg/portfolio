@@ -23,6 +23,14 @@ const Container = styled(motion.div)`
         &:hover::after {
             width: 100%;
         }
+        @media screen and (max-width: 992px) {
+            font-size: 20px;
+        }
+        &:first-of-type {
+            @media screen and (max-width: 992px) {
+                font-size: 1.2em;
+            }
+        }
     }
 `;
 const Title = styled.div`
