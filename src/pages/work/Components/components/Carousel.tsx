@@ -15,7 +15,6 @@ export default function Carousel({ data }: any) {
         prevArrow: <button type="button" className="slick-prev"></button>,
         nextArrow: <button type="button" className="slick-next"></button>,
     };
-    console.log(data.img.map((e: any) => e.img));
 
     return (
         <C.CarouselContainer {...settings} className="slider">

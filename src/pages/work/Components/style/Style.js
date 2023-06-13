@@ -12,6 +12,9 @@ export const Container = styled.div`
 
     .top {
         margin-top: 90vh;
+        @media screen and (max-width: 992px) {
+            margin-top: 70vh;
+        }
     }
     .my-part {
         margin-top: 5rem;
@@ -41,6 +44,11 @@ export const Title = styled.div`
 export const TitleName = styled.div`
     font-size: 2.2rem;
     padding-left: 20px;
+    @media screen and (max-width: 992px) {
+        margin: auto;
+        padding: 0;
+        font-size: 2rem;
+    }
 `;
 export const TitleDetail = styled.div`
     position: absolute;
@@ -48,6 +56,9 @@ export const TitleDetail = styled.div`
     bottom: 3rem;
     font-size: 0.8rem;
     width: 15rem;
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
 `;
 
 export const Detaile = styled.div`
@@ -70,6 +81,10 @@ export const Background = styled.img`
     max-width: 100%;
     object-fit: cover;
     border-top: 1px solid #fff;
+    @media screen and (max-width: 992px) {
+        height: 60vh;
+        bottom: -60vh;
+    }
 `;
 export const ImageBox = styled.div`
     width: 60vw;
@@ -89,7 +104,7 @@ export const CarouselContainer = styled(Slider)`
     width: 100%;
     border-radius: 20px;
     height: 93%;
-    width: 95%;
+    width: 97%;
     margin: 0;
     .slick-list {
         border-radius: 15px;
@@ -151,12 +166,18 @@ export const SmallContainer = styled.div`
     justify-content: space-around;
     text-align: center;
     font-size: 17px;
+    @media screen and (max-width: 992px) {
+        margin: 3rem 0;
+    }
 `;
 export const SmallTitle = styled.div`
     width: 40%;
     color: #999999;
     font-size: 1.7rem;
     font-weight: bold;
+    @media screen and (max-width: 992px) {
+        font-size: 1.2rem;
+    }
 `;
 export const ContentBox = styled.div`
     width: 60%;
