@@ -8,7 +8,7 @@ import ScrollTop from "./ScrollTop";
 
 export default function Router() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <ScrollTop />
             <Routes>
                 <Route path="/" element={<App />} />
