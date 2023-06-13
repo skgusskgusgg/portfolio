@@ -8,8 +8,8 @@ export default function MyPart({ data }: any) {
                     <C.List key={e.id}>
                         <C.Bold>{e.name}</C.Bold>
                         <ul>
-                            {e.content.map((a: any) => {
-                                return <li key={a.id}>{a.content}</li>;
+                            {e.content.map((a: any, index: number) => {
+                                return <li key={index}>{a.content}</li>;
                             })}
                         </ul>
                     </C.List>
