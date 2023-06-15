@@ -40,7 +40,7 @@
         "eject": "react-scripts eject",
         "predeploy": "CI= npm run build",
         "deploy": "gh-pages -d build",
-        "homepage": "https://skgusskgusgg.github.io/portfolio/"
+        "homepage": "https://kkkwonnahyun.netlify.app"
     },
     "eslintConfig": {
         "extends": [
