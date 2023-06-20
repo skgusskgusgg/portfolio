@@ -1,5 +1,3 @@
-import React from "react";
-import Nav from "../nav/SideNav";
 import Container from "../Container";
 import port from "../../data/portfolio.json";
 

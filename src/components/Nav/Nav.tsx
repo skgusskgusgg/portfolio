@@ -1,11 +1,18 @@
 import * as N from "./Style";
 
+interface NavProps {
+    onMoveMain: () => void;
+    onMoveWork: () => void;
+    onMoveIntro: () => void;
+    onMoveConnect: () => void;
+}
+
 export default function Nav({
     onMoveMain,
     onMoveWork,
     onMoveIntro,
     onMoveConnect,
-}: any) {
+}: NavProps) {
     const BTN = [
         {
             id: 1,

@@ -1,6 +1,28 @@
 import * as C from "../style/Style";
 
-export default function Category({ data }: any) {
+interface ProjectData {
+    id: number;
+    name: string;
+    background: string;
+    img: { id: number; img: string }[];
+    category: string;
+    day: string;
+    person: string;
+    bold: string;
+    about: string;
+    skill: { id: number; name: string; color: string }[];
+    myPart: {
+        id: number;
+        name: string;
+        content: { id: number; content: string }[];
+    }[];
+    review: { id: number; content: string }[];
+}
+interface CategoryProps {
+    data: ProjectData;
+}
+
+export default function Category({ data }: CategoryProps) {
     return (
         <>
             <C.TitleName>{data.name}</C.TitleName>

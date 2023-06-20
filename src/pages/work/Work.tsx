@@ -4,7 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TITLE from "./data/title.json";
 
-const Work = ({ onMoveMain }: any) => {
+interface WorkProps {
+    onMoveMain: () => void;
+}
+
+const Work = ({ onMoveMain }: WorkProps) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -23,7 +27,9 @@ const Work = ({ onMoveMain }: any) => {
                         <W.WorkBox key={e.id}>
                             <W.Background
                                 onClick={
-                                    e.small === "Portfolio" ? onMoveMain : null
+                                    e.small === "Portfolio"
+                                        ? onMoveMain || (() => {})
+                                        : undefined
                                 }
                                 style={{ backgroundImage: `url(${e.img})` }}
                             >
@@ -43,7 +49,9 @@ const Work = ({ onMoveMain }: any) => {
                         <W.WorkBox key={e.id}>
                             <W.Background
                                 onClick={
-                                    e.small === "Portfolio" ? onMoveMain : null
+                                    e.small === "Portfolio"
+                                        ? onMoveMain || (() => {})
+                                        : undefined
                                 }
                             >
                                 <Link to={e.link}>

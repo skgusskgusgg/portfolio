@@ -63,7 +63,7 @@ const varints = {
 const changeColor = ["#015c92", "#053c5e", "#cd9489", "#1f2933", "#85a3c5"];
 
 export default function Container() {
-    const bgRef = useRef<any>(null);
+    const bgRef = useRef<HTMLDivElement>(null);
     const [scrollValue, setScrollValue] = useState(0);
     const [colorIndex, setColorIndex] = useState(0);
     const [dateNow, setDateNow] = useState(Date.now());
@@ -97,14 +97,19 @@ export default function Container() {
             behavior: "smooth",
         });
     };
-    const handleChangecolor = (e: any) => {
-        setScrollValue(scrollValue + e.currentTarget.scrollY * 0.01);
+    const handleChangecolor = (e: Event) => {
+        const target = e.target as Window;
+        const { scrollY } = target;
+        setScrollValue(scrollValue + scrollY * 0.01);
         const timePassed = Date.now() - dateNow;
 
         if (timePassed > 1000 && scrollValue > 5) {
             setDateNow(Date.now());
             setColorIndex((prev) => prev + 1);
-            bgRef.current.style.backgroundColor = changeColor[colorIndex];
+            if (bgRef.current) {
+                bgRef.current.style.backgroundColor =
+                    changeColor[colorIndex % changeColor.length];
+            }
             setScrollValue(0);
             if (colorIndex > changeColor.length - 1) {
                 setColorIndex(0);
@@ -116,7 +121,10 @@ export default function Container() {
             if (colorIndex < 0) {
                 setColorIndex(changeColor.length - 1);
             }
-            bgRef.current.style.backgroundColor = changeColor[colorIndex];
+            if (bgRef.current) {
+                bgRef.current.style.backgroundColor =
+                    changeColor[colorIndex % changeColor.length];
+            }
             setScrollValue(0);
         }
     };
