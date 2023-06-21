@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import * as N from "./Style";
 
 interface NavProps {

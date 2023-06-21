@@ -1,98 +1,24 @@
-import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import Main from "../pages/main/Main";
-import Introdution from "../pages/introdution/Introdution";
-import Work from "../pages/work/Work";
-import Connect from "../pages/connect/Connect";
+import * as C from "./style";
 import Nav from "./Nav/Nav";
-
-const Cotainer = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: #015c92;
-    transition: ease-in-out 0.5s;
-
-    div {
-        ::selection {
-            background: #fff;
-            color: #000;
-        }
-    }
-`;
-
-const Wrapper = styled(motion.div)`
-    width: 100%;
-`;
-const DivBox = styled(motion.div)`
-    .div {
-        width: 70vw;
-        height: 70vh;
-        border: 1px solid #fff;
-        z-index: 10;
-        transition: all ease-in-out 0.5s;
-        &:hover {
-            background-color: #000;
-            border: 1px solid #000;
-        }
-    }
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-`;
-
-const varints = {
-    entry: {
-        opacity: 0,
-        transition: { duration: 0.5, delay: 0.5 },
-    },
-    while: {
-        opacity: 1,
-        transition: { duration: 0.5, delay: 0.5 },
-    },
-    exit: {
-        opacity: 0,
-        transition: { duration: 0.5, delay: 0.5 },
-    },
-};
-const changeColor = ["#015c92", "#053c5e", "#cd9489", "#1f2933", "#85a3c5"];
+import SectionMain from "./SectionMain";
+import SectionIntroduction from "./SectionIntroduction";
+import SectionWork from "./SectionWork";
+import SectionConntect from "./SectionConntect";
 
 export default function Container() {
     const bgRef = useRef<HTMLDivElement>(null);
     const [scrollValue, setScrollValue] = useState(0);
     const [colorIndex, setColorIndex] = useState(0);
     const [dateNow, setDateNow] = useState(Date.now());
-    const mainRef = useRef<HTMLDivElement>(null);
-    const workRef = useRef<HTMLDivElement>(null);
-    const introRef = useRef<HTMLDivElement>(null);
-    const connectRef = useRef<HTMLDivElement>(null);
-
-    const onMoveMain = () => {
-        mainRef.current?.scrollIntoView({
-            block: "start",
-            behavior: "smooth",
-        });
+    const sectionRefs = {
+        mainRef: useRef(null),
+        workRef: useRef(null),
+        introRef: useRef(null),
+        connectRef: useRef(null),
     };
-
-    const onMoveWork = () => {
-        workRef.current?.scrollIntoView({
-            block: "start",
-            behavior: "smooth",
-        });
-    };
-    const onMoveIntro = () => {
-        introRef.current?.scrollIntoView({
-            block: "start",
-            behavior: "smooth",
-        });
-    };
-    const onMoveConnect = () => {
-        connectRef.current?.scrollIntoView({
+    const onMove = (ref: any) => {
+        ref.current?.scrollIntoView({
             block: "start",
             behavior: "smooth",
         });
@@ -108,10 +34,10 @@ export default function Container() {
             setColorIndex((prev) => prev + 1);
             if (bgRef.current) {
                 bgRef.current.style.backgroundColor =
-                    changeColor[colorIndex % changeColor.length];
+                    C.changeColor[colorIndex % C.changeColor.length];
             }
             setScrollValue(0);
-            if (colorIndex > changeColor.length - 1) {
+            if (colorIndex > C.changeColor.length - 1) {
                 setColorIndex(0);
             }
         }
@@ -119,11 +45,11 @@ export default function Container() {
             setDateNow(Date.now());
             setColorIndex((prev) => prev - 1);
             if (colorIndex < 0) {
-                setColorIndex(changeColor.length - 1);
+                setColorIndex(C.changeColor.length - 1);
             }
             if (bgRef.current) {
                 bgRef.current.style.backgroundColor =
-                    changeColor[colorIndex % changeColor.length];
+                    C.changeColor[colorIndex % C.changeColor.length];
             }
             setScrollValue(0);
         }
@@ -138,58 +64,22 @@ export default function Container() {
     return (
         <>
             <Nav
-                onMoveMain={onMoveMain}
-                onMoveWork={onMoveWork}
-                onMoveIntro={onMoveIntro}
-                onMoveConnect={onMoveConnect}
+                onMoveMain={() => onMove(sectionRefs.mainRef)}
+                onMoveWork={() => onMove(sectionRefs.workRef)}
+                onMoveIntro={() => onMove(sectionRefs.introRef)}
+                onMoveConnect={() => onMove(sectionRefs.connectRef)}
             />
-            <Cotainer ref={bgRef}>
-                <Wrapper>
-                    <motion.div
-                        variants={varints}
-                        initial="entry"
-                        whileInView="while"
-                        exit="exit"
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                        ref={mainRef}
-                    >
-                        <Main />
-                    </motion.div>
-                    <DivBox
-                        variants={varints}
-                        initial="entry"
-                        whileInView="while"
-                        exit="exit"
-                        ref={introRef}
-                    >
-                        <Introdution />
-                    </DivBox>
-                    <DivBox
-                        variants={varints}
-                        initial="entry"
-                        whileInView="while"
-                        exit="exit"
-                        ref={workRef}
-                    >
-                        <Work onMoveMain={onMoveMain} />
-                    </DivBox>
-                    <DivBox
-                        variants={varints}
-                        initial="entry"
-                        whileInView="while"
-                        exit="exit"
-                        ref={connectRef}
-                    >
-                        <Connect />
-                    </DivBox>
-                </Wrapper>
-            </Cotainer>
+            <C.Container ref={bgRef}>
+                <C.Wrapper>
+                    <SectionMain ref={sectionRefs.mainRef} />
+                    <SectionIntroduction ref={sectionRefs.introRef} />
+                    <SectionWork
+                        ref={sectionRefs.workRef}
+                        onMoveMain={() => onMove(sectionRefs.mainRef)}
+                    />
+                    <SectionConntect ref={sectionRefs.connectRef} />
+                </C.Wrapper>
+            </C.Container>
         </>
     );
 }
