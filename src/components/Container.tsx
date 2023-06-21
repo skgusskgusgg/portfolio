@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import * as C from "./style";
 import Nav from "./Nav/Nav";
 import SectionMain from "./SectionMain";
@@ -17,7 +17,7 @@ export default function Container() {
         introRef: useRef(null),
         connectRef: useRef(null),
     };
-    const onMove = (ref: any) => {
+    const onMove = (ref: RefObject<HTMLDivElement>) => {
         ref.current?.scrollIntoView({
             block: "start",
             behavior: "smooth",
